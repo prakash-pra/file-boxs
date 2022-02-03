@@ -1,6 +1,8 @@
 import Box from '../../models/box.model';
 
-// create new box
+/* 
+create new box
+*/
 const createBox = async (req, res) => {
   console.log('create box');
   try {
@@ -9,28 +11,37 @@ const createBox = async (req, res) => {
       description: 'something intersting'
     });
     const result = await box.save();
-    res.json({
-      sucess: true,
-      code: 200,
-      message: result
-    });
+    res.status(200).json({ result: box });
   } catch (err) {
     throw err;
   }
 };
 
-const getBox = async (req, res) => {
-  // console.log('get box');
-  // try {
-  //   res.json({
-  //     sucess: true,
-  //     code: 200,
-  //     message: 'get a box'
-  //   });
-  // } catch (err) {
-  //   console.log(err);
-  //   throw err;
-  // }
+/* 
+edit box name and discription
+*/
+const editBox = async (req, res) => {
+  const boxId = '61fc41fecdc7833620613f11';
+  try {
+    const boxs = await Box.findByIdAndUpdate(boxId, {
+      $set: { name: 'jason bourne', description: 'somethingChange' }
+    });
+    res.status(200).json({ result: boxs });
+  } catch (err) {
+    throw err;
+  }
 };
 
-export { createBox, getBox };
+/* 
+get all box
+*/
+const getBoxs = async (req, res) => {
+  try {
+    const boxs = await Box.find({});
+    res.status(200).json({ result: boxs });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export { createBox, getBoxs, editBox };
