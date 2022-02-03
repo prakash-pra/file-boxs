@@ -4,10 +4,6 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import config from './config';
 import mongoose from 'mongoose';
-// import { createAdmin } from './controllers/admin.controller/admin';
-
-/* External routes import */
-// import routes from './routes';
 
 const app = express();
 
@@ -37,10 +33,6 @@ app.get('/', (req, res) => {
 
 /* External base router  */
 // app.use('/', routes);
-
-const port = 3000;
-
-/* server port */
 
 // database connection string
 mongoose
