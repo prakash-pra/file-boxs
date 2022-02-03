@@ -3,6 +3,6 @@ import {createBox, getBox} from '../services';
 
 const Router = express.Router();
 
-Router.route('/createbox').get(createBox);
+Router.route('/createbox').post(createBox);
 
 export default Router;

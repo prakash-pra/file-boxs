@@ -21,7 +21,8 @@ const boxSchema = new Schema({
     default: false
   },
   file_path: {
-    type: String
+    type: String,
+    default: null
   },
   whenCreated: {
     type: Date,
@@ -33,4 +34,6 @@ const boxSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Box', boxSchema);
+const Box = mongoose.model('Box', boxSchema);
+
+export default Box;

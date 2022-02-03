@@ -1,12 +1,12 @@
-import Box from '../../models/index';
+import Box from '../../models/box.model';
 
 // create new box
 const createBox = async (req, res) => {
+  console.log('create box');
   try {
     const box = new Box({
       name: 'prakash',
-      description: 'something intersting',
-      file_path: ''
+      description: 'something intersting'
     });
     const result = await box.save();
     res.json({
