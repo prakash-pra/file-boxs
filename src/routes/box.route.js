@@ -1,8 +1,8 @@
 import express from 'express';
-import boxRouter from './box.route';
+import {createBox, getBox} from '../services';
 
 const Router = express.Router();
 
-Router.use('/', boxRouter);
+Router.route('/createbox').get(createBox);
 
 export default Router;

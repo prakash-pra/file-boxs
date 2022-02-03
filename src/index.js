@@ -4,6 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import config from './config';
 import mongoose from 'mongoose';
+import routes from './routes';
 
 const app = express();
 
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
 });
 
 /* External base router  */
-// app.use('/', routes);
+app.use('/', routes);
 
 // database connection string
 mongoose

@@ -1,15 +1,9 @@
 import mongoose from 'mongoose';
-import uuid from 'uuid';
 import { boxStatus } from '../constants/constant';
 
 const Schema = mongoose.Schema;
 
 const boxSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    default: uuid.v4
-  },
   name: {
     type: String,
     required: true
@@ -17,10 +11,17 @@ const boxSchema = new Schema({
   description: {
     type: String
   },
-  status: {
+  type: {
     type: String,
     enum: [...Object.keys(boxStatus)],
     default: boxStatus.PRIVATE
+  },
+  has_file: {
+    type: Boolean,
+    default: false
+  },
+  file_path: {
+    type: String
   },
   whenCreated: {
     type: Date,
