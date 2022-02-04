@@ -5,12 +5,13 @@ import path from 'path';
 create new box
 */
 const createBox = async (req, res) => {
-  const { name, description } = req.body;
+  const { name, description, ownerId } = req.body;
 
   try {
     const box = new Box({
       name: name,
-      description: description
+      description: description,
+      owner_user: ownerId
     });
     const result = await box.save();
     return res.status(200).json({ result: box });

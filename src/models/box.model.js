@@ -16,6 +16,10 @@ const boxSchema = new Schema({
     enum: [...Object.keys(boxStatus)],
     default: boxStatus.PRIVATE
   },
+  owner_user:{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   has_file: {
     type: Boolean,
     default: false
