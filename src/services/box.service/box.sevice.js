@@ -4,14 +4,15 @@ import Box from '../../models/box.model';
 create new box
 */
 const createBox = async (req, res) => {
-  console.log('create box');
+  const { name, description } = req.body;
+
   try {
     const box = new Box({
-      name: 'prakash',
-      description: 'something intersting'
+      name: name,
+      description: description
     });
     const result = await box.save();
-    res.status(200).json({ result: box });
+    return res.status(200).json({ result: box });
   } catch (err) {
     throw err;
   }
@@ -21,12 +22,16 @@ const createBox = async (req, res) => {
 edit box name and discription
 */
 const editBox = async (req, res) => {
-  const boxId = '61fc41fecdc7833620613f11';
+  const { id, name, description } = req.body;
   try {
-    const boxs = await Box.findByIdAndUpdate(boxId, {
-      $set: { name: 'jason bourne', description: 'somethingChange' }
-    });
-    res.status(200).json({ result: boxs });
+    const boxs = await Box.findByIdAndUpdate(
+      id,
+      {
+        $set: { name: name, description: description }
+      },
+      { returnDocument: 'after' }
+    );
+    return res.status(200).json({ result: boxs });
   } catch (err) {
     throw err;
   }
@@ -41,7 +46,7 @@ const uploadFile = async (req, res) => {
     const boxs = await Box.findByIdAndUpdate(boxId, {
       $set: { fiel_path: 'set file location' }
     });
-    res.status(200).json({ result: boxs });
+    return res.status(200).json({ result: boxs });
   } catch (err) {
     throw err;
   }

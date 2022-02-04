@@ -15,6 +15,6 @@ Router.route('/getboxs').get(getBoxs);
 
 Router.route('/editbox').put(editBox);
 
-Router.route('/uploadfile').post(fileUpload.single('file'), uploadFile);
+// Router.route('/uploadfile').post(fileUpload.single('file'), uploadFile);
 
 export default Router;
