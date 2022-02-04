@@ -5,7 +5,13 @@ import path from 'path';
 create new box
 */
 const createBox = async (req, res) => {
-  const { name, description, ownerId } = req.body;
+  const { name, description} = req.body;
+  const ownerId = req.userId;
+
+  // check for all input fields
+  if (!(name && description && ownerId)) {
+    res.status(400).json({ message: 'All input is required' });
+  }
 
   try {
     const box = new Box({

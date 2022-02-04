@@ -1,5 +1,6 @@
 import express from 'express';
 import { fileUpload } from '../middleware';
+import { verifyToken } from '../middleware';
 import {
   createBox,
   getBoxs,
@@ -16,7 +17,7 @@ const Router = express.Router();
 4. upload file route 
 5. download file from box
  */
-Router.route('/createbox').post(createBox);
+Router.route('/createbox').post(verifyToken, createBox);
 
 Router.route('/getboxs').get(getBoxs);
 

@@ -8,4 +8,4 @@ export {
 } from './box.service';
 
 // export all user api
-export { createUser } from './user.service';
+export { createUser, userLogin } from './user.service';
