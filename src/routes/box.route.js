@@ -1,6 +1,12 @@
 import express from 'express';
 import { fileUpload } from '../middleware';
-import { createBox, getBoxs, editBox, uploadFile } from '../services';
+import {
+  createBox,
+  getBoxs,
+  editBox,
+  uploadFile,
+  downloadFile
+} from '../services';
 
 const Router = express.Router();
 /*
@@ -8,6 +14,7 @@ const Router = express.Router();
 2.get box list route
 3.update box name and description route
 4. upload file route 
+5. download file from box
  */
 Router.route('/createbox').post(createBox);
 
@@ -23,5 +30,7 @@ Router.route('/uploadfile').post(
   },
   uploadFile
 );
+
+Router.route('/downloadfile').get(downloadFile);
 
 export default Router;

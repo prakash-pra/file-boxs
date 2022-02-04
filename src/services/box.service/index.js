@@ -1,2 +1,2 @@
-export { createBox, getBoxs,editBox,uploadFile } from './box.sevice';
+export { createBox, getBoxs,editBox,uploadFile,downloadFile } from './box.sevice';
 

@@ -1,4 +1,5 @@
 import Box from '../../models/box.model';
+import path from 'path';
 
 /* 
 create new box
@@ -78,7 +79,14 @@ const getBoxs = async (req, res) => {
 download file from box
 */
 const downloadFile = async (req, res) => {
+  const { id } = req.body;
   try {
+    const { file_path } = await Box.findOne({ id }).select('file_path');
+    const fileName = path.basename(file_path);
+    if (!fileName == null || !fileName == undefined || !fileName == '') {
+      return res.status(200).download(file_path);
+    }
+    console.log('file not found.');
   } catch (err) {
     throw err;
   }

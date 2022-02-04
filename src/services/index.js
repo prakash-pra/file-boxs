@@ -1,1 +1,1 @@
-export { createBox, getBoxs,editBox,uploadFile } from './box.service';
+export { createBox, getBoxs,editBox,uploadFile,downloadFile } from './box.service';
