@@ -1,11 +1,12 @@
 import Box from '../../models/box.model';
 import path from 'path';
+import boxStatus from '../../constants/constant';
 
 /* 
 create new box
 */
 const createBox = async (req, res) => {
-  const { name, description} = req.body;
+  const { name, description } = req.body;
   const ownerId = req.userId;
 
   // check for all input fields
@@ -17,7 +18,7 @@ const createBox = async (req, res) => {
     const box = new Box({
       name: name,
       description: description,
-      owner_user: ownerId
+      owner: ownerId
     });
     const result = await box.save();
     return res.status(200).json({ result: box });
@@ -75,7 +76,8 @@ get all box
 */
 const getBoxs = async (req, res) => {
   try {
-    const boxs = await Box.find({});
+    const ownerId = req.userId;
+    const boxs = await Box.find({}).where(ownerId);
     res.status(200).json({ result: boxs });
   } catch (err) {
     throw err;
@@ -99,4 +101,30 @@ const downloadFile = async (req, res) => {
   }
 };
 
-export { createBox, getBoxs, editBox, uploadFile, downloadFile };
+/* 
+ change file type
+*/
+const changeFileType = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const box = await Box.findByIdAndUpdate(
+      id,
+      {
+        $set: { type: 'PUBLIC' }
+      },
+      { returnDocument: 'after' }
+    );
+    return res.status(200).json({ result: box });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export {
+  createBox,
+  getBoxs,
+  editBox,
+  uploadFile,
+  downloadFile,
+  changeFileType
+};

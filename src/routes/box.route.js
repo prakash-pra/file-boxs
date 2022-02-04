@@ -6,7 +6,8 @@ import {
   getBoxs,
   editBox,
   uploadFile,
-  downloadFile
+  downloadFile,
+  changeFileType
 } from '../services';
 
 const Router = express.Router();
@@ -19,11 +20,12 @@ const Router = express.Router();
  */
 Router.route('/createbox').post(verifyToken, createBox);
 
-Router.route('/getboxs').get(getBoxs);
+Router.route('/getboxs').get(verifyToken, getBoxs);
 
-Router.route('/editbox').put(editBox);
+Router.route('/editbox').put(verifyToken, editBox);
 
 Router.route('/uploadfile').post(
+  verifyToken,
   fileUpload.single('file'),
   (req, res, next) => {
     // handling multer erro later
@@ -33,5 +35,7 @@ Router.route('/uploadfile').post(
 );
 
 Router.route('/downloadfile').get(downloadFile);
+
+Router.route('/updatetype').put(verifyToken, changeFileType);
 
 export default Router;

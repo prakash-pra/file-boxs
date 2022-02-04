@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { boxStatus } from '../constants/constant';
 
 const Schema = mongoose.Schema;
 
@@ -13,10 +12,9 @@ const boxSchema = new Schema({
   },
   type: {
     type: String,
-    enum: [...Object.keys(boxStatus)],
-    default: boxStatus.PRIVATE
+    default: 'PRIVATE'
   },
-  owner_user:{
+  owner: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
