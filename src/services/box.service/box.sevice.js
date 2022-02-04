@@ -48,7 +48,7 @@ const uploadFile = async (req, res) => {
     const boxs = await Box.findByIdAndUpdate(
       id,
       {
-        $set: { file_path: file_path }
+        $set: { file_path: file_path, has_file: true }
       },
       { returnDocument: 'after' }
     );
