@@ -32,6 +32,21 @@ const editBox = async (req, res) => {
   }
 };
 
+/*
+upload file into box
+ */
+const uploadFile = async (req, res) => {
+  const boxId = '61fc41fecdc7833620613f11';
+  try {
+    const boxs = await Box.findByIdAndUpdate(boxId, {
+      $set: { fiel_path: 'set file location' }
+    });
+    res.status(200).json({ result: boxs });
+  } catch (err) {
+    throw err;
+  }
+};
+
 /* 
 get all box
 */
@@ -44,4 +59,4 @@ const getBoxs = async (req, res) => {
   }
 };
 
-export { createBox, getBoxs, editBox };
+export { createBox, getBoxs, editBox, uploadFile };
