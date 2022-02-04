@@ -1,1 +1,1 @@
-export {uploadFile} from './uploadfile.middleware'
+export {fileUpload} from './uploadfile.middleware'

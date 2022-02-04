@@ -1,4 +1,5 @@
 import Box from '../../models/box.model';
+import path from 'path';
 
 /* 
 create new box
@@ -41,11 +42,16 @@ const editBox = async (req, res) => {
 upload file into box
  */
 const uploadFile = async (req, res) => {
-  const boxId = '61fc41fecdc7833620613f11';
+  const { id } = req.body;
+  const file_path = req.file.path;
   try {
-    const boxs = await Box.findByIdAndUpdate(boxId, {
-      $set: { fiel_path: 'set file location' }
-    });
+    const boxs = await Box.findByIdAndUpdate(
+      id,
+      {
+        $set: { file_path: file_path }
+      },
+      { returnDocument: 'after' }
+    );
     return res.status(200).json({ result: boxs });
   } catch (err) {
     throw err;
