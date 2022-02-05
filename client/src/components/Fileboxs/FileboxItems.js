@@ -1,6 +1,6 @@
 import './FileboxItems.css';
 import Box from './Box';
-const FileboxList = () => {
+const FileboxItems = () => {
   const dummy_data = [
     {
       id: 1,
@@ -33,26 +33,26 @@ const FileboxList = () => {
       file: 'images/abcd.csv'
     },
     {
-      id: 5,
+      id: 6,
       name: 'prakash',
       description: 'some description',
       file: 'images/abcd.csv'
     },
     {
-      id: 5,
+      id: 7,
       name: 'prakash',
       description: 'some description',
       file: 'images/abcd.csv'
     },
     {
-      id: 5,
+      id: 8,
       name: 'prakash',
       description: 'some description',
       file: 'images/abcd.csv'
     }
   ];
-  const card = dummy_data.map((box) => <Box boxItem={box} />);
+  const card = dummy_data.map((box) => <Box key={box.id} boxItem={box} />);
   return <section className='boxItems'>{card}</section>;
 };
 
-export default FileboxList;
+export default FileboxItems;

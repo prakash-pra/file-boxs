@@ -2,7 +2,7 @@ import './Box.css';
 import Card from '../UI/Card';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-const FileboxList = (props) => {
+const Box = (props) => {
   return (
     <section>
       <Card key={props.boxItem.id}>
@@ -20,4 +20,4 @@ const FileboxList = (props) => {
   );
 };
 
-export default FileboxList;
+export default Box
