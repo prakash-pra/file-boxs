@@ -1,9 +1,14 @@
 import Header from './components/Layout/Header';
+import Filebox from './components/Fileboxs/Filebox';
+import './App.css';
 function App() {
   return (
-    <div className='App'>
+    <>
       <Header />
-    </div>
+      <main>
+        <Filebox />
+      </main>
+    </>
   );
 }
 
