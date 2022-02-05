@@ -1,6 +1,6 @@
-import './FileboxList.css';
-import Card from '../UI/Card';
-const FileboxContent = () => {
+import './FileboxItems.css';
+import Box from './Box';
+const FileboxList = () => {
   const dummy_data = [
     {
       id: 1,
@@ -51,16 +51,8 @@ const FileboxContent = () => {
       file: 'images/abcd.csv'
     }
   ];
-  const card = dummy_data.map((box) => (
-    <Card key={box.id}>
-      <div className='boxlist'>
-        <h2>{box.name}</h2>
-        <div>{box.description}</div>
-        <div>{box.file}</div>
-      </div>
-    </Card>
-  ));
-  return <section className='box'>{card}</section>;
+  const card = dummy_data.map((box) => <Box boxItem={box} />);
+  return <section className='boxItems'>{card}</section>;
 };
 
-export default FileboxContent;
+export default FileboxList;

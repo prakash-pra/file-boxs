@@ -1,0 +1,19 @@
+.boxlist h3 {
+margin: 0 0 0.25rem 0;
+}
+
+.description {
+font-style: italic;
+margin-bottom: 1rem;
+}
+
+.filename{
+font-style: italic;
+}
+.icons{
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding: 0 0.9rem;
+color: #aaa5a5;
+}
