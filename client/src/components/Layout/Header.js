@@ -1,22 +1,25 @@
 import './header.css';
 
 // application header
-const Header = () => {
-  let url = '';
+const Header = (props) => {
+  let test = () => {
+    const value = true
+    props.loginFormHandler(value)
+  };
   return (
     <>
       <header className='header'>
-        <a href={url} className='logo'>
+        <span className='logo'>
           File<span>boxs</span>
-        </a>
+        </span>
 
         <nav>
           <ul>
             <li>
-              <a href={url}>login</a>
+              <span onClick={test}>login</span>
             </li>
             <li>
-              <a href={url}>logout</a>
+              <span>logout</span>
             </li>
           </ul>
         </nav>

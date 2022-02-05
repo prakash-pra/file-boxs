@@ -31,6 +31,24 @@ const FileboxContent = () => {
       name: 'prakash',
       description: 'some description',
       file: 'images/abcd.csv'
+    },
+    {
+      id: 5,
+      name: 'prakash',
+      description: 'some description',
+      file: 'images/abcd.csv'
+    },
+    {
+      id: 5,
+      name: 'prakash',
+      description: 'some description',
+      file: 'images/abcd.csv'
+    },
+    {
+      id: 5,
+      name: 'prakash',
+      description: 'some description',
+      file: 'images/abcd.csv'
     }
   ];
   const card = dummy_data.map((box) => (

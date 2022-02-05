@@ -36,7 +36,7 @@ nav ul li{
   padding: 0 0.5rem;
 }
 
-nav ul li a{
+nav ul li span{
   text-decoration: none;
   color: #fff;
   font-weight: 400;

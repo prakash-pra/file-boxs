@@ -1,8 +1,11 @@
 .box {  
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5rem;
-  margin: 2rem 3rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 5rem;
+    margin: 2rem 3rem;
+    
 }
 .boxlist h3 {
   margin: 0 0 0.25rem 0;

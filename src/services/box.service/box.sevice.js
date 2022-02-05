@@ -72,7 +72,7 @@ const uploadFile = async (req, res) => {
 };
 
 /* 
-get all box
+get all owned box
 */
 const getBoxs = async (req, res) => {
   try {
