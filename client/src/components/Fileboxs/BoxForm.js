@@ -3,9 +3,9 @@ import axios from 'axios';
 import Card from '../UI/Card';
 import './BoxForm.css';
 
-const BoxForm = () => {
+const BoxForm = (props) => {
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isSuccessMessage, setIsSuccessMessage] = useState('');
+  // const [isSuccessMessage, setIsSuccessMessage] = useState('');
 
   const nameInputRef = useRef();
   const descriptionInputRef = useRef();
@@ -23,28 +23,27 @@ const BoxForm = () => {
         setIsSuccess(false);
       }, 1000);
     }
-
+    const closeFromFlag = false;
     try {
-      const res = await axios.post(`http://localhost:2800/createbox`, box);
-      setIsSuccessMessage(res.data.message);
+      await axios.post(`http://localhost:2800/createbox`, box);
       setIsSuccess(true);
       nameInputRef.current.value = '';
       descriptionInputRef.current.value = '';
       hideMessage();
+      props.closeBoxFormhandler(closeFromFlag);
     } catch (err) {
       throw err;
     }
   };
-
-  const successMsg = (
-    <div>
-      {isSuccess && <p style={{ color: 'green' }}>{isSuccessMessage}</p>}
-    </div>
-  );
+  //Not useful in this case (for future reference)
+  // const successMsg = (
+  //   <div>
+  //     {isSuccess && <p style={{ color: 'green' }}>{isSuccessMessage}</p>}
+  //   </div>
+  // );
   const boxForm = (
     <section className='boxForm'>
       <Card>
-        {successMsg}
         <form onSubmit={onFormSubmitHandler}>
           <div className='input-container'>
             <label>Box Name </label>
@@ -52,7 +51,7 @@ const BoxForm = () => {
           </div>
           <div className='input-container'>
             <label>Description</label>
-            <input
+            <textarea
               type='text'
               name='description'
               ref={descriptionInputRef}

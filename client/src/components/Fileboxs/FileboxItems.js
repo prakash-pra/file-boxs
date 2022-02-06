@@ -4,9 +4,9 @@ import Box from './Box';
 import axios from 'axios';
 
 // box items
-const FileboxItems = () => {
+const FileboxItems = (props) => {
   const [isBoxData, setIsBox] = useState([]);
-
+  const boxEditHandler = props.boxEditHandler
   // An empty array means the callback will only execute once
   useEffect(() => {
     getBoxs();
@@ -21,7 +21,7 @@ const FileboxItems = () => {
     }
   };
 
-  const boxData = isBoxData.map((box) => <Box key={box._id} boxItem={box} />);
+  const boxData = isBoxData.map((box) => <Box editHandler={boxEditHandler} key={box._id} boxItem={box} />);
   return <section className='boxItems'>{boxData}</section>;
 };
 

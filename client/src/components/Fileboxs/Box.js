@@ -13,11 +13,11 @@ const Box = (props) => {
         </div>
         <div className='icons'>
           <VisibilityIcon />
-          <ModeEditIcon />
+          <ModeEditIcon onClick={() => props.editHandler(true)} />
         </div>
       </Card>
     </section>
   );
 };
 
-export default Box
+export default Box;
