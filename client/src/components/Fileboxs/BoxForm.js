@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import axios from 'axios';
 import Card from '../UI/Card';
 import './BoxForm.css';
 
 const BoxForm = (props) => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  // const [isSuccess, setIsSuccess] = useState(false);
   // const [isSuccessMessage, setIsSuccessMessage] = useState('');
 
   const nameInputRef = useRef();
@@ -18,29 +18,30 @@ const BoxForm = (props) => {
       description: descriptionInputRef.current.value
     };
 
-    function hideMessage() {
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 1000);
-    }
     const closeFromFlag = false;
     try {
       await axios.post(`http://localhost:2800/createbox`, box);
-      setIsSuccess(true);
       nameInputRef.current.value = '';
       descriptionInputRef.current.value = '';
-      hideMessage();
       props.closeBoxFormhandler(closeFromFlag);
     } catch (err) {
       throw err;
     }
   };
+  useEffect(() => {
+    if (!(Object.keys(props.boxInfo).length === 0)) {
+      nameInputRef.current.value = props.boxInfo.description;
+      descriptionInputRef.current.value = props.boxInfo.description;
+    }
+  }, [props.boxInfo]);
+
   //Not useful in this case (for future reference)
   // const successMsg = (
   //   <div>
   //     {isSuccess && <p style={{ color: 'green' }}>{isSuccessMessage}</p>}
   //   </div>
   // );
+
   const boxForm = (
     <section className='boxForm'>
       <Card>

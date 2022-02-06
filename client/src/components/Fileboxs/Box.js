@@ -13,7 +13,7 @@ const Box = (props) => {
         </div>
         <div className='icons'>
           <VisibilityIcon />
-          <ModeEditIcon onClick={() => props.editHandler(true)} />
+          <ModeEditIcon onClick={() => props.editHandler(true,props.boxItem.name,props.boxItem.description)} />
         </div>
       </Card>
     </section>

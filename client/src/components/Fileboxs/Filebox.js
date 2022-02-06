@@ -5,7 +5,7 @@ import BoxForm from './BoxForm';
 const Filebox = (props) => {
   const [isBoxForm, setBoxForm] = useState(false);
   const [isFileItem, setFileItem] = useState(true);
-
+  const [isBoxDetails, setBoxDetails] = useState({});
   const boxFormhandler = (formFlag) => {
     setBoxForm(formFlag);
     setFileItem(false);
@@ -16,7 +16,8 @@ const Filebox = (props) => {
     setFileItem(true);
   };
 
-  const boxEditHandler = (value) => {
+  const boxEditHandler = (value, name, description) => {
+    setBoxDetails({ name: name, description: description });
     setBoxForm(value);
     setFileItem(false);
   };
@@ -24,7 +25,7 @@ const Filebox = (props) => {
   return (
     <>
       <FileboxHeading boxFormhandler={boxFormhandler} />
-      {isBoxForm && <BoxForm closeBoxFormhandler={closeBoxFormhandler} />}
+      {isBoxForm && <BoxForm closeBoxFormhandler={closeBoxFormhandler} boxInfo={isBoxDetails}/>}
       {isFileItem && <FileboxItem boxEditHandler={boxEditHandler} />}
     </>
   );
