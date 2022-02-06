@@ -72,6 +72,18 @@ const uploadFile = async (req, res) => {
 };
 
 /* 
+get all box
+*/
+const getFileBoxs = async (req, res) => {
+  try {
+    const boxs = await Box.find({});
+    res.status(200).json({ result: boxs });
+  } catch (err) {
+    throw err;
+  }
+};
+
+/* 
 get all owned box
 */
 const getBoxs = async (req, res) => {
@@ -126,5 +138,6 @@ export {
   editBox,
   uploadFile,
   downloadFile,
-  changeFileType
+  changeFileType,
+  getFileBoxs
 };

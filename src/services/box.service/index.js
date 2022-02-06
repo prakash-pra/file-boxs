@@ -4,5 +4,6 @@ export {
   editBox,
   uploadFile,
   downloadFile,
-  changeFileType
+  changeFileType,
+  getFileBoxs
 } from './box.sevice';

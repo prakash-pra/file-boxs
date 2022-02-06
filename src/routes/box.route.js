@@ -7,7 +7,8 @@ import {
   editBox,
   uploadFile,
   downloadFile,
-  changeFileType
+  changeFileType,
+  getFileBoxs
 } from '../services';
 
 const Router = express.Router();
@@ -20,7 +21,9 @@ const Router = express.Router();
  */
 Router.route('/createbox').post(verifyToken, createBox);
 
-Router.route('/getboxs').get(verifyToken, getBoxs);
+Router.route('/getboxs').get(getBoxs);
+
+Router.route('/getfileboxs').get(getFileBoxs);
 
 Router.route('/editbox').put(verifyToken, editBox);
 
@@ -36,6 +39,6 @@ Router.route('/uploadfile').post(
 
 Router.route('/downloadfile').get(downloadFile);
 
-Router.route('/updatetype').put(verifyToken, changeFileType);
+Router.route('/updatetype').put( changeFileType);
 
 export default Router;

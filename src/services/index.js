@@ -5,7 +5,8 @@ export {
   editBox,
   uploadFile,
   downloadFile,
-  changeFileType
+  changeFileType,
+  getFileBoxs
 } from './box.service';
 
 // export all user api

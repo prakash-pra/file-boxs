@@ -1,7 +1,7 @@
 // import react from 'react'
 import './LoginForm.css';
 import Card from '../UI/Card';
-const LoginForm = (props) => {
+const LoginForm = () => {
   return (
     <section className='login-form'>
       <Card>
