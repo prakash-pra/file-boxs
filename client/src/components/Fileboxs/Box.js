@@ -5,7 +5,7 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 const Box = (props) => {
   return (
     <section>
-      <Card key={props.boxItem.id}>
+      <Card key={props.boxItem._id}>
         <div className='boxlist'>
           <h3>{props.boxItem.name}</h3>
           <div className='description'>{props.boxItem.description}</div>
@@ -13,7 +13,7 @@ const Box = (props) => {
         </div>
         <div className='icons'>
           <VisibilityIcon />
-          <ModeEditIcon onClick={() => props.editHandler(true,props.boxItem.name,props.boxItem.description)} />
+          <ModeEditIcon onClick={() => props.editHandler(true,props.boxItem._id,props.boxItem.name,props.boxItem.description)} />
         </div>
       </Card>
     </section>

@@ -25,7 +25,7 @@ Router.route('/getboxs').get(getBoxs);
 
 Router.route('/getfileboxs').get(getFileBoxs);
 
-Router.route('/editbox').put(verifyToken, editBox);
+Router.route('/editbox').put(editBox);
 
 Router.route('/uploadfile').post(
   verifyToken,

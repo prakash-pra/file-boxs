@@ -12,6 +12,8 @@ const FileboxItems = (props) => {
     getBoxs();
   }, []);
 
+  
+
   const getBoxs = async () => {
     try {
       const res = await axios.get(`http://localhost:2800/getFileBoxs`);

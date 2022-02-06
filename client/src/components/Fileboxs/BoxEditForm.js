@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import axios from 'axios';
 import Card from '../UI/Card';
 import './BoxForm.css';
@@ -10,32 +10,31 @@ const BoxForm = (props) => {
   const nameInputRef = useRef();
   const descriptionInputRef = useRef();
 
+  useEffect(() => {
+    if (!(Object.keys(props.boxInfo).length === 0)) {
+      nameInputRef.current.value = props.boxInfo.name;
+      descriptionInputRef.current.value = props.boxInfo.description;
+    }
+  }, [props.boxInfo]);
+
   const onFormSubmitHandler = async (event) => {
     event.preventDefault();
 
     const box = {
+      id: props.boxInfo._id,
       name: nameInputRef.current.value,
       description: descriptionInputRef.current.value
     };
 
-    const closeFromFlag = false;
     try {
-      await axios.post(`http://localhost:2800/createbox`, box);
+      await axios.put(`http://localhost:2800/editbox`, box);
       nameInputRef.current.value = '';
       descriptionInputRef.current.value = '';
-      props.closeBoxFormhandler(closeFromFlag);
+      props.closeBoxEditFormhandler(false);
     } catch (err) {
       throw err;
     }
   };
-
-  //Not useful in this case (for future reference)
-  // const successMsg = (
-  //   <div>
-  //     {isSuccess && <p style={{ color: 'green' }}>{isSuccessMessage}</p>}
-  //   </div>
-  // );
-
   const boxForm = (
     <section className='boxForm'>
       <Card>

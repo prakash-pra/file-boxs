@@ -1,0 +1,62 @@
+.boxForm{
+  max-width: 35rem;
+  width: 90%;
+  margin: 2rem auto;
+}
+.boxForm textarea[type="text"] {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 5rem;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+.boxForm textarea[type="text"]:focus {
+  outline: 1px solid #ccc;
+}
+
+.boxForm input[type="text"] {
+  width: 100%;
+  border-radius: 5px;
+  height: 2rem;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+.boxForm input[type="text"]:focus {
+  outline: 1px solid #ccc;
+}
+
+.boxForm button {
+  height: 2.6rem;
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #d14108;
+  color: white;
+  padding: 0.75rem 3rem;
+  display: flex;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+.boxForm button:hover {
+  background-color: #ac481d;
+}
+
+.boxForm .button-container {
+  display: flex;
+  justify-content: center;
+}
+.boxForm .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+.boxForm .input-container label{
+  font-size: 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #555151;
+}
