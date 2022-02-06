@@ -15,7 +15,7 @@
   outline: 1px solid #ccc;
 }
 
-.boxForm input[type="submit"] {
+.boxForm button {
   height: 2.6rem;
   cursor: pointer;
   font: inherit;
@@ -28,7 +28,7 @@
   font-weight: 500;
 }
 
-.boxForm input[type="submit"]:hover {
+.boxForm button:hover {
   background-color: #ac481d;
 }
 

@@ -15,14 +15,13 @@ const FileboxItems = () => {
   const getBoxs = async () => {
     try {
       const res = await axios.get(`http://localhost:2800/getFileBoxs`);
-      console.log(res.data.result);
       setIsBox(res.data.result);
     } catch (err) {
       throw err;
     }
   };
 
-  const boxData = isBoxData.map((box) => <Box key={box.id} boxItem={box} />);
+  const boxData = isBoxData.map((box) => <Box key={box._id} boxItem={box} />);
   return <section className='boxItems'>{boxData}</section>;
 };
 

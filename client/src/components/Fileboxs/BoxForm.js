@@ -14,6 +14,7 @@ const BoxForm = () => {
       name: nameInputRef.current.value,
       description: descriptionInputRef.current.value
     };
+
     try {
       const res = await axios.post(`http://localhost:2800/createbox`, box);
       console.log(res);
@@ -22,7 +23,7 @@ const BoxForm = () => {
     }
   };
 
-  return (
+  const boxForm = (
     <section className='boxForm'>
       <Card>
         <form onSubmit={onFormSubmitHandler}>
@@ -40,11 +41,13 @@ const BoxForm = () => {
             />
           </div>
           <div className='button-container'>
-            <input type='submit' />
+            <button>Submit</button>
           </div>
         </form>
       </Card>
     </section>
   );
+
+  return boxForm;
 };
 export default BoxForm;
