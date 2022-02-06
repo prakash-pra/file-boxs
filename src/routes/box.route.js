@@ -19,7 +19,7 @@ const Router = express.Router();
 4. upload file route 
 5. download file from box
  */
-Router.route('/createbox').post(verifyToken, createBox);
+Router.route('/createbox').post(createBox);
 
 Router.route('/getboxs').get(getBoxs);
 
@@ -39,6 +39,6 @@ Router.route('/uploadfile').post(
 
 Router.route('/downloadfile').get(downloadFile);
 
-Router.route('/updatetype').put( changeFileType);
+Router.route('/updatetype').put(changeFileType);
 
 export default Router;

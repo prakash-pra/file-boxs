@@ -1,27 +1,23 @@
 import Box from '../../models/box.model';
 import path from 'path';
-import boxStatus from '../../constants/constant';
-
 /* 
 create new box
 */
 const createBox = async (req, res) => {
   const { name, description } = req.body;
-  const ownerId = req.userId;
 
   // check for all input fields
-  if (!(name && description && ownerId)) {
+  if (!(name && description)) {
     res.status(400).json({ message: 'All input is required' });
   }
 
   try {
     const box = new Box({
       name: name,
-      description: description,
-      owner: ownerId
+      description: description
     });
-    const result = await box.save();
-    return res.status(200).json({ result: box });
+    await box.save();
+    return res.status(200).json({ message: 'Box successfully created.' });
   } catch (err) {
     throw err;
   }

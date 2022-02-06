@@ -14,10 +14,6 @@ const boxSchema = new Schema({
     type: String,
     default: 'PRIVATE'
   },
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
   has_file: {
     type: Boolean,
     default: false
