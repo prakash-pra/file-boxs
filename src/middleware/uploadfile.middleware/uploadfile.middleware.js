@@ -7,7 +7,6 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     const fileNamed = path.parse(file.originalname);
-    console.log(fileNamed);
     cb(
       null,
       `${fileNamed.name.toString().trim()}-${Date.parse(

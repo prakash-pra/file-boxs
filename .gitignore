@@ -7,6 +7,7 @@ npm-debug.log_
 # Dependency directories
 
 node_modules/
+public/Files/
 
 # Optional npm cache directory
 

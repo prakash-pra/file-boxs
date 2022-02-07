@@ -97,8 +97,6 @@ download file from box
 */
 const downloadFile = async (req, res) => {
   const { id } = req.body;
-  console.log(req.file);
-  console.log(id);
   try {
     const { file_path } = await Box.findOne({ id }).select('file_path');
     const fileName = path.basename(file_path);
