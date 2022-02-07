@@ -60,7 +60,17 @@ const Box = (props) => {
           </div>
         </div>
         <div className='icons'>
-          <VisibilityIcon />
+          <VisibilityIcon
+            onClick={() =>
+              props.viewBoxHandler(
+                true,
+                props.boxItem._id,
+                props.boxItem.name,
+                props.boxItem.description,
+                props.boxItem.file_path
+              )
+            }
+          />
           <ModeEditIcon
             onClick={() =>
               props.editHandler(

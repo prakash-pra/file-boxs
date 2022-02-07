@@ -7,6 +7,7 @@ import axios from 'axios';
 const FileboxItems = (props) => {
   const [isBoxData, setIsBox] = useState([]);
   const boxEditHandler = props.boxEditHandler;
+  const viewBoxHandler =props.viewBoxHandler;
   // An empty array means the callback will only execute once
   useEffect(() => {
     getBoxs();
@@ -23,7 +24,7 @@ const FileboxItems = (props) => {
   };
 
   const boxData = isBoxData.map((box) => (
-    <Box editHandler={boxEditHandler} key={box._id} boxItem={box} />
+    <Box viewBoxHandler={viewBoxHandler} editHandler={boxEditHandler} key={box._id} boxItem={box} />
   ));
   return <section className='boxItems'>{boxData}</section>;
 };
