@@ -23,7 +23,19 @@ cursor: pointer;
   color: #aaa5a5;
   cursor: pointer;
   }
-.download-icons{
-color: #aaa5a5;
-cursor: pointer;
+
+.file-button button{
+  height: 2rem;
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #d14108;
+  color: white;
+  padding: 0.4rem 1rem;
+  display: flex;
+  border-radius: 25px;
+  font-weight: bold;
+}
+.file-upload{
+  display: flex;
 }

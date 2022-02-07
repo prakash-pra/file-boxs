@@ -36,7 +36,7 @@ Router.route('/uploadfile').post(
   uploadFile
 );
 
-Router.route('/downloadfile').get(downloadFile);
+Router.route('/downloadfile').post(downloadFile);
 
 Router.route('/updatetype').put(changeFileType);
 

@@ -97,13 +97,24 @@ download file from box
 */
 const downloadFile = async (req, res) => {
   const { id } = req.body;
+  console.log(id);
   try {
-    const { file_path } = await Box.findOne({ id }).select('file_path');
-    const fileName = path.basename(file_path);
-    if (!fileName == null || !fileName == undefined || !fileName == '') {
-      return res.status(200).download(file_path);
+    const box = await Box.findById(id);
+    console.log(box);
+
+    if (box) {
+      console.log('sdfa');
+      const file_path = box.file_path;
+      if (!file_path == null || !file_path == undefined || !file_path == '') {
+        const fileName = file_path.split('\\')[2];
+        console.log('checking...');
+        return res
+          .status(200)
+          .download(path.join(`public/Files/` + fileName), fileName);
+      }
+      console.log('file not found.');
     }
-    console.log('file not found.');
+    res.status(404).json({ message: 'not found' });
   } catch (err) {
     throw err;
   }

@@ -1,14 +1,21 @@
 import './ViewFileBox.css';
-import axios from 'axios'
+import download from 'downloadjs';
+import axios from 'axios';
 import Card from '../UI/Card';
 import GetAppIcon from '@mui/icons-material/GetApp';
 
 const Box = (props) => {
-  console.log(props.isViewBoxInfo.file);
   const file = props.isViewBoxInfo.file;
 
   const downloadFile = async () => {
-    alert('working');
+    const boxId = { id: props.isViewBoxInfo._id };
+    try {
+      console.log('testing', boxId);
+      const res = await axios.post(`http://localhost:2500/downloadfile`, boxId);
+      download(res.data, file ? file.split('\\')[2] : '', 'text/csv');
+    } catch (err) {
+      throw err;
+    }
   };
 
   return (
