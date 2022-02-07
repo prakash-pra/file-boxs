@@ -28,7 +28,6 @@ Router.route('/getfileboxs').get(getFileBoxs);
 Router.route('/editbox').put(editBox);
 
 Router.route('/uploadfile').post(
-  verifyToken,
   fileUpload.single('file'),
   (req, res, next) => {
     // handling multer erro later

@@ -7,6 +7,7 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     const fileNamed = path.parse(file.originalname);
+    console.log(fileNamed);
     cb(
       null,
       `${fileNamed.name.toString().trim()}-${Date.parse(
@@ -15,16 +16,16 @@ const storage = multer.diskStorage({
     );
   }
 });
-function fileFilter(req, file, cb) {
-  if (file.mimetype === 'text/csv') {
-    cb(null, true);
-  } else {
-    cb('File Type Not Match !!!', false);
-  }
-}
+// function fileFilter(req, file, cb) {
+//   console.log(file.mimetype);
+//   if (file.mimetype === 'text/csv') {
+//     cb(null, true);
+//   } else {
+//     cb('File Type Not Match !!!', false);
+//   }
+// }
 
 const fileUpload = multer({
-  fileFilter,
   storage
 });
 

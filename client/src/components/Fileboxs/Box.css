@@ -18,6 +18,12 @@ padding: 0 0.9rem;
 color: #aaa5a5;
 cursor: pointer;
 }
-.icons{
+
+.upload-icons{
   color: #aaa5a5;
+  cursor: pointer;
   }
+.download-icons{
+color: #aaa5a5;
+cursor: pointer;
+}
