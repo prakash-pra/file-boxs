@@ -2,6 +2,8 @@ import { useRef, useEffect } from 'react';
 import axios from 'axios';
 import Card from '../UI/Card';
 import './BoxForm.css';
+import url from '../Constants/constants';
+import CloseIcon from '@mui/icons-material/Close';
 
 const BoxForm = (props) => {
   // const [isSuccess, setIsSuccess] = useState(false);
@@ -27,7 +29,7 @@ const BoxForm = (props) => {
     };
 
     try {
-      await axios.put(`http://localhost:2800/editbox`, box);
+      await axios.put(`${url}editbox`, box);
       nameInputRef.current.value = '';
       descriptionInputRef.current.value = '';
       props.closeBoxEditFormhandler(false);
@@ -38,6 +40,9 @@ const BoxForm = (props) => {
   const boxForm = (
     <section className='boxForm'>
       <Card>
+      <div className='close-button'>
+          <CloseIcon onClick={() => props.closeBoxEditFormhandler(false)} />
+        </div>
         <form onSubmit={onFormSubmitHandler}>
           <div className='input-container'>
             <label>Box Name </label>

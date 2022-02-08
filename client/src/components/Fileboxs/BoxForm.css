@@ -60,3 +60,10 @@
   font-weight: 600;
   color: #555151;
 }
+.close-button{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  cursor: pointer;
+}

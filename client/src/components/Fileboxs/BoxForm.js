@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import axios from 'axios';
 import Card from '../UI/Card';
 import './BoxForm.css';
+import url from '../Constants/constants';
+import CloseIcon from '@mui/icons-material/Close';
 
 const BoxForm = (props) => {
   // const [isSuccess, setIsSuccess] = useState(false);
@@ -20,7 +22,7 @@ const BoxForm = (props) => {
 
     const closeFromFlag = false;
     try {
-      await axios.post(`http://localhost:2800/createbox`, box);
+      await axios.post(`${url}createbox`, box);
       nameInputRef.current.value = '';
       descriptionInputRef.current.value = '';
       props.closeBoxFormhandler(closeFromFlag);
@@ -39,6 +41,9 @@ const BoxForm = (props) => {
   const boxForm = (
     <section className='boxForm'>
       <Card>
+        <div className='close-button'>
+          <CloseIcon onClick={() => props.closeBoxFormhandler(false)} />
+        </div>
         <form onSubmit={onFormSubmitHandler}>
           <div className='input-container'>
             <label>Box Name </label>

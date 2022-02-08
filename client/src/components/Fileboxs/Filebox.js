@@ -11,6 +11,7 @@ const Filebox = (props) => {
   const [isBoxDetails, setBoxDetails] = useState({});
   const [isViewBox, setIsViewBox] = useState(false);
   const [isViewBoxInfo, setViewBoxInfo] = useState({});
+  // const[isFormclose, setFormClose] = useState(false)
 
   const boxFormhandler = (formFlag) => {
     setBoxForm(formFlag);

@@ -12,13 +12,7 @@ import {
 } from '../services';
 
 const Router = express.Router();
-/*
-1.create box route
-2.get box list route
-3.update box name and description route
-4. upload file route 
-5. download file from box
- */
+
 Router.route('/createbox').post(createBox);
 
 Router.route('/getboxs').get(getBoxs);
