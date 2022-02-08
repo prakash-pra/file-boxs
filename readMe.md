@@ -1,7 +1,13 @@
-```bash
-# install dependencies
-npm install
+# FILE BOXS WEB APPLICATION
 
-# run serve with hot reload
-npm run dev
-```
+File boxs is a web based application for uploading file on boxs.
+
+## Setting up your development environment
+
+
+### Step:1
+Get a copy of the code from the repository.
+The GIT repository called File boxs.
+
+1. See Clone an existing GIT repo  for instructions on how to clone a repository. 
+
