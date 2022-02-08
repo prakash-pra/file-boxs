@@ -1,11 +1,15 @@
 import './FileboxHeading.css';
+import Button from '../UI/Button';
 const FileboxHeading = (props) => {
-  const formFlag = true
+  // const formFlag = true;
+  console.log(props.isAddBoxHidden);
   return (
     <>
       <section className='fileboxheading'>
         <h2>File Boxs</h2>
-        <button onClick={()=>props.boxFormhandler(formFlag)}>Add box</button>
+        {props.isAddBoxHidden && (
+          <Button boxFormhandler={props.boxFormhandler} />
+        )}
       </section>
       <hr />
     </>

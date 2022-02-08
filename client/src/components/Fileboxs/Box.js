@@ -5,8 +5,7 @@ import Card from '../UI/Card';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-// import FileUploadIcon from '@mui/icons-material/FileUpload';
-
+import url from '../Constants/constants'
 const Box = (props) => {
   const [isFile, setIsFile] = useState('');
 
@@ -27,11 +26,12 @@ const Box = (props) => {
     try {
       const res = await axios({
         method: 'post',
-        url: `http://localhost:2800/uploadfile`,
+        url: `${url}uploadfile`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       console.log(res.data);
+      
     } catch (err) {
       throw err;
     }

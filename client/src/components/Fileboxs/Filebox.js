@@ -11,6 +11,7 @@ const Filebox = () => {
   const [isBoxDetails, setBoxDetails] = useState({});
   const [isViewBox, setIsViewBox] = useState(false);
   const [isViewBoxInfo, setViewBoxInfo] = useState({});
+  const [isAddBoxHidden, setAddBoxHidden] = useState(true);
 
   const boxFormhandler = (formFlag) => {
     setBoxForm(formFlag);
@@ -25,21 +26,25 @@ const Filebox = () => {
   const closeBoxEditFormhandler = ({ closeForm }) => {
     setBoxEditForm(closeForm);
     setFileItem(true);
+    setAddBoxHidden(true);
   };
 
   const boxEditHandler = (value, boxId, name, description) => {
     setBoxEditForm(value);
     setFileItem(false);
+    setAddBoxHidden(false);
     setBoxDetails({ _id: boxId, name: name, description: description });
   };
 
   const closeViewFileBoxhandler = ({ val }) => {
     setIsViewBox(val);
     setFileItem(true);
+    setAddBoxHidden(true);
   };
   const viewBoxHandler = (val, boxId, name, description, file_path) => {
     setIsViewBox(val);
     setFileItem(false);
+    setAddBoxHidden(false);
     setViewBoxInfo({
       _id: boxId,
       name: name,
@@ -48,7 +53,12 @@ const Filebox = () => {
     });
   };
 
-  const fileBoxHeading = <FileboxHeading boxFormhandler={boxFormhandler} />;
+  const fileBoxHeading = (
+    <FileboxHeading
+      isAddBoxHidden={isAddBoxHidden}
+      boxFormhandler={boxFormhandler}
+    />
+  );
   const boxForm = <BoxForm closeBoxFormhandler={closeBoxFormhandler} />;
   const fileBox = (
     <FileboxItem

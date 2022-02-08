@@ -37,12 +37,14 @@ const BoxForm = (props) => {
       throw err;
     }
   };
+
+  const closeIcon = (
+    <CloseIcon onClick={() => props.closeBoxEditFormhandler(false)} />
+  );
   const boxForm = (
     <section className='boxForm'>
       <Card>
-      <div className='close-button'>
-          <CloseIcon onClick={() => props.closeBoxEditFormhandler(false)} />
-        </div>
+        <div className='close-button'>{closeIcon}</div>
         <form onSubmit={onFormSubmitHandler}>
           <div className='input-container'>
             <label>Box Name </label>
