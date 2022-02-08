@@ -4,14 +4,13 @@ import FileboxHeading from './FileboxHeading';
 import BoxForm from './BoxForm';
 import BoxEditForm from './BoxEditForm';
 import ViewFileBox from './ViewFileBox';
-const Filebox = (props) => {
+const Filebox = () => {
   const [isBoxForm, setBoxForm] = useState(false);
   const [isFileItem, setFileItem] = useState(true);
   const [isBoxEditForm, setBoxEditForm] = useState(false);
   const [isBoxDetails, setBoxDetails] = useState({});
   const [isViewBox, setIsViewBox] = useState(false);
   const [isViewBoxInfo, setViewBoxInfo] = useState({});
-  // const[isFormclose, setFormClose] = useState(false)
 
   const boxFormhandler = (formFlag) => {
     setBoxForm(formFlag);
@@ -39,7 +38,6 @@ const Filebox = (props) => {
     setFileItem(true);
   };
   const viewBoxHandler = (val, boxId, name, description, file_path) => {
-    // console.log(val, boxId, name, description, file_path);
     setIsViewBox(val);
     setFileItem(false);
     setViewBoxInfo({
@@ -50,28 +48,36 @@ const Filebox = (props) => {
     });
   };
 
+  const fileBoxHeading = <FileboxHeading boxFormhandler={boxFormhandler} />;
+  const boxForm = <BoxForm closeBoxFormhandler={closeBoxFormhandler} />;
+  const fileBox = (
+    <FileboxItem
+      viewBoxHandler={viewBoxHandler}
+      boxEditHandler={boxEditHandler}
+    />
+  );
+
+  const editForm = (
+    <BoxEditForm
+      closeBoxEditFormhandler={closeBoxEditFormhandler}
+      boxInfo={isBoxDetails}
+    />
+  );
+
+  const viewBox = (
+    <ViewFileBox
+      closeViewFileBoxhandler={closeViewFileBoxhandler}
+      isViewBoxInfo={isViewBoxInfo}
+    />
+  );
+
   return (
     <>
-      <FileboxHeading boxFormhandler={boxFormhandler} />
-      {isBoxForm && <BoxForm closeBoxFormhandler={closeBoxFormhandler} />}
-      {isFileItem && (
-        <FileboxItem
-          viewBoxHandler={viewBoxHandler}
-          boxEditHandler={boxEditHandler}
-        />
-      )}
-      {isBoxEditForm && (
-        <BoxEditForm
-          closeBoxEditFormhandler={closeBoxEditFormhandler}
-          boxInfo={isBoxDetails}
-        />
-      )}
-      {isViewBox && (
-        <ViewFileBox
-          closeViewFileBoxhandler={closeViewFileBoxhandler}
-          isViewBoxInfo={isViewBoxInfo}
-        />
-      )}
+      {fileBoxHeading}
+      {isBoxForm && boxForm}
+      {isFileItem && fileBox}
+      {isBoxEditForm && editForm}
+      {isViewBox && viewBox}
     </>
   );
 };
