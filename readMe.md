@@ -30,6 +30,7 @@ MONGO_USER=********
 MONGO_PASSWORD=********   
 MONGO_DATABASE=********  
 SECRET=***********
-```
+```  
+* Create public/Files directory in root of your application for file upload.
 * run you project using npm run dev.
 
