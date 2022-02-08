@@ -9,5 +9,6 @@ File boxs is a web based application for uploading file on boxs.
 Get a copy of the code from the repository.
 The GIT repository called File boxs.
 
-1. See Clone an existing GIT repo  for instructions on how to clone a repository. 
+1. See Clone an existing GIT repo  using this url 
+ 
 
