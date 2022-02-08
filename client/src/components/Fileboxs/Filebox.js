@@ -34,8 +34,8 @@ const Filebox = (props) => {
     setBoxDetails({ _id: boxId, name: name, description: description });
   };
 
-  const closeViewFileBoxhandler = ({ closeForm }) => {
-    setBoxEditForm(closeForm);
+  const closeViewFileBoxhandler = ({ val }) => {
+    setIsViewBox(val);
     setFileItem(true);
   };
   const viewBoxHandler = (val, boxId, name, description, file_path) => {
