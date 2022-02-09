@@ -32,5 +32,5 @@ MONGO_DATABASE=********
 SECRET=***********
 ```  
 * Create public/Files directory in root of your application for file upload.
-* run you project using npm run dev.
+* run project using npm run dev.
 
