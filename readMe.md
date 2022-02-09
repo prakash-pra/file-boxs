@@ -4,14 +4,17 @@ File boxs is a web based application for uploading file on boxs.
 
 ## Setting up your development environment
 
+### Step: 1
+Setup Node js and Npm
 
-### Step:1
+
+### Step:2
 Get a copy of the code from the repository.
 The GIT repository called File boxs.
 
 1. See Clone an existing GIT repo  using this url https://github.com/prakash-pra/file-boxs.git
  
-### Step 2: Run the Project
+### Step 3: Run the Project
  To run the project it is necessary to run both the client and the server.
  
 ## 1. Run the client
