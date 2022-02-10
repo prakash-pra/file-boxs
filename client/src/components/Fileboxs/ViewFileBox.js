@@ -12,7 +12,6 @@ const Box = (props) => {
   const downloadFile = async () => {
     const boxId = { id: props.isViewBoxInfo._id };
     try {
-      console.log('testing', boxId);
       const res = await axios.post(`${url}downloadfile`, boxId);
       download(res.data, file ? file.split('\\')[2] : '', 'text/csv');
     } catch (err) {

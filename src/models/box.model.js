@@ -8,10 +8,12 @@ const boxSchema = new Schema({
     required: true
   },
   description: {
-    type: String
+    type: String,
+    required:true
   },
   type: {
     type: String,
+    enum: ['PRIVATE','PUBLIC'],
     default: 'PRIVATE'
   },
   has_file: {
