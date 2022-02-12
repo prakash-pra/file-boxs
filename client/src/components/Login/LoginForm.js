@@ -7,8 +7,8 @@ const LoginForm = () => {
       <Card>
         <form>
           <div className='input-container'>
-            <label>Username </label>
-            <input type='text' name='uname' required />
+            <label>Email </label>
+            <input type='text' name='email' required />
           </div>
           <div className='input-container'>
             <label>Password </label>

@@ -1,24 +1,27 @@
 import mongoose from 'mongoose';
-import { boxStatus } from '../constants/constant';
-
+const emailRegex =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
     name: {
       type: String,
-      required: true
+      required: [true, 'Name is required']
     },
     email: {
       type: String,
-      required: true
+      match: [emailRegex, 'Please add a valid email address.'],
+      required: [true, 'Email is required'],
+      unique: [true]
     },
     password: {
       type: String,
-      required: true
+      required: [true, 'Password field is required']
     },
     has_role: {
-      type: String
+      type: String,
+      required: [true, 'Role is required']
     }
   },
   { timestamps: true }

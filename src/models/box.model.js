@@ -5,15 +5,19 @@ const Schema = mongoose.Schema;
 const boxSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: [true, 'Name is required']
   },
   description: {
     type: String,
-    required:true
+    required: [true, 'Description is required']
   },
   type: {
     type: String,
-    enum: ['PRIVATE','PUBLIC'],
+    enum: {
+      values: ['PRIVATE', 'PUBLIC'],
+      message: '{VALUE} is not supportrd'
+    },
+
     default: 'PRIVATE'
   },
   has_file: {

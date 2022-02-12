@@ -4,14 +4,8 @@ import path from 'path';
 create new box
 */
 const createBox = async (req, res) => {
-  const { name, description } = req.body;
-
-  // check for all input fields
-  if (!(name && description)) {
-    res.status(400).json({ message: 'All input is required' });
-  }
-
   try {
+    const { name, description } = req.body;
     const box = new Box({
       name: name,
       description: description
@@ -19,7 +13,7 @@ const createBox = async (req, res) => {
     await box.save();
     return res.status(200).json({ message: 'Box successfully created.' });
   } catch (err) {
-    throw err;
+    res.status(400).json(err.message);
   }
 };
 
