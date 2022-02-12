@@ -8,21 +8,19 @@ create new user
 */
 const createUser = async (req, res) => {
   const { name, email, password, has_role } = req.body;
+
   try {
-    // check for user in db
-    const userEmail = await User.findOne({ email });
-    const hashPassword = await bcrypt.hash(password, 10);
     const user = new User({
       name: name,
       email: email,
-      password: hashPassword,
+      password: password,
       has_role: has_role
     });
     const result = await user.save();
     return res.status(200).json({ result: result });
   } catch (err) {
     if (!err.keyValue) {
-      res.status(400).json(err.keyValue);
+      res.status(400).json(err.message);
     } else {
       res.status(400).json(err.keyValue.email + ' already exist');
     }
