@@ -13,6 +13,7 @@ const userSchema = new Schema(
     },
     email: {
       type: String,
+      lowercase: true,
       match: [emailRegex, 'Please add a valid email address.'],
       required: [true, 'Email is required'],
       unique: [true]
